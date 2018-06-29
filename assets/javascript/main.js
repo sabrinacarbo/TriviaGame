@@ -1,5 +1,42 @@
 //=========================== GLOBAL VARIABLES ========================
 
+var correctAnswerCounter = 0;
+var incorrectAnswerCounter = 0;
+var unansweredAnswerCounter = 0;
+
+var questionObject = [{
+    question: "The man in black is Westley",
+    answer: true,
+},{
+    question: "Westley was the next door neighbor to Buttercup.",
+    answer: false,
+},{
+    question: "Humperdinck is the Prince of Florin.",
+    answer: true,
+},{
+    question: "R.O.U.S. stands for Rat of Unusual Shape.",
+    answer: false,
+},{
+    question: "Buttercup nearly suffocated in the Fire Swamp.",
+    answer: true,
+},{
+    question: "Domingo Montoya is the six-fingered man.",
+    answer: false,
+},{
+    question: "The Dread Pirate Roberts is believed to have killed Westley while sailing to America.",
+    answer: true,
+},{
+    question: "Westley poisoned Inigo.",
+    answer: false,
+},{
+    question: "Inigo wanted to kill Count Rugen to avenge his father's death.",
+    answer: true,
+},{
+    question: "Fezzik was made fun being the size of a teenager at the age of six when he was in school.",
+    answer: false,
+}
+];
+
 //============================= FUNCTIONS ==============================
 
 //----------------------------- GAME START ----------------------------
@@ -11,11 +48,15 @@
 
 //User pushes the start button to begin the game
 
-//Timer starts to count down
+//Timer starts to count down ******* CHECK CODE ******  <================================ *****
+    // Change the "display" id to "00:00."
+    // $("#display").text("Time Remaining: " + "00:00" + "seconds");
 
 
 //Random generator needed:
     //Random question is generated
+
+
 
     //User chooses either True or False
 
@@ -33,7 +74,7 @@
     //If keyPress == false && answer == false, then correctAnswerCounter ++
     //and the next question is generated
 
-    //If keyPres == false && answer == true, then incorrectAnswerCounter ++
+    //If keyPress == false && answer == true, then incorrectAnswerCounter ++
     //and the next question is generated
 
 //Game completion:
@@ -43,7 +84,10 @@
 //Upon completion:
     //correctAnswerCounter = (total correct answers)
     //incorrectAnswerCounter = (total incorrect answers)
-    //unansweredCounter  = (total unanswered questions)
+    //unansweredAnswerCounter  = (total unanswered questions)
+
+
+//Listening event
 
 
 
