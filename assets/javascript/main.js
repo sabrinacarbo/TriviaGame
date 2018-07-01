@@ -120,14 +120,14 @@ $(document).ready(function () {
         run();
 
         //Random question is generated
-        randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
+        randomQuestion = questionArray.splice(Math.floor(Math.random() * questionArray.length), 1)[0];
 
         //Adds random question to HTML
         $("#triviaQuestion").text(randomQuestion.question);
 
         randomAnswer = randomQuestion.answer;
 
-        
+
     });
 
     //============================= CONDITIONALS ==============================
@@ -136,6 +136,8 @@ $(document).ready(function () {
 
         //User selects the TRUE button
         $("#trueBtn").on("click", function () {
+
+            gameComplete();
 
             trueButton = true;
 
@@ -147,7 +149,7 @@ $(document).ready(function () {
             }
 
             //Random question is generated
-            randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
+            randomQuestion = questionArray.splice(Math.floor(Math.random() * questionArray.length), 1)[0];
 
             //Adds random question to HTML
             $("#triviaQuestion").text(randomQuestion.question);
@@ -159,8 +161,10 @@ $(document).ready(function () {
             console.log("Incorrect Answers: " + incorrectAnswerCounter);
         });
 
-        //User selects the TRUE button
+        //User selects the FALSE button
         $("#falseBtn").on("click", function () {
+
+            gameComplete();
 
             falseButton = false;
 
@@ -172,7 +176,7 @@ $(document).ready(function () {
             }
 
             //Random question is generated
-            randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
+            randomQuestion = questionArray.splice(Math.floor(Math.random() * questionArray.length), 1)[0];
 
             //Adds random question to HTML
             $("#triviaQuestion").text(randomQuestion.question);
@@ -186,22 +190,26 @@ $(document).ready(function () {
 
     };
 
-
     answerChoice();
 
+    function gameComplete() {
 
-//Game completion:
-    //If questionArray < 1, then game is over
-    //If timer == 0, then game is over
+        //Game completion:
+        //If questionArray === 0, then game is over
+        if (questionArray.length === 0){
 
+            $("#triviaQuestion").empty();
+            $(".box").text("Correct Answers: " + correctAnswerCounter);
+            $(".box").append("<br>");
+            $(".box").append("Incorrect Answers: " + incorrectAnswerCounter);
+        }
 
+        //If timer === 0, then game is over
+        if (timer === 0){
+            alert("Time's Up!");
+        }
 
-//Upon completion:
+        stop();
 
-    // $("#completed").text("Correct Answers: " + correctAnswerCounter);
-    // $("#completed").append("Incorrect Answers: " + incorrectAnswerCounter);
-
-    // };
-
-
+    };
 });
