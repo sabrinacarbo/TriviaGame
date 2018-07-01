@@ -4,8 +4,8 @@ var correctAnswerCounter = 0;
 var incorrectAnswerCounter = 0;
 var unansweredAnswerCounter = 0;
 
-var questionObject = [{
-    question: "The man in black is Westley",
+var questionArray = [{
+    question: "The man in black is Westley.",
     answer: true,
 },{
     question: "Westley was the next door neighbor to Buttercup.",
@@ -37,26 +37,49 @@ var questionObject = [{
 }
 ];
 
+console.log(questionArray[0].question);
+console.log(questionArray[0].answer);
+
+//Variable to hold the random question from the array
+var randomQuestion = [];
+
 //============================= FUNCTIONS ==============================
+
+//Page loads
+$(document).ready(function(){
 
 //----------------------------- GAME START ----------------------------
 
-//========================== CONDITIONALS ===========================
+function pageLoads (resetGame){
 
+    //Resets all counters
+    correctAnswerCounter = 0;
+    incorrectAnswerCounter = 0;
+    unansweredAnswerCounter = 0;
 
-//Page loads
+};
 
 //User pushes the start button to begin the game
+    $("#startBtn").click(function(startGame){
+        alert("Ready!");
 
-//Timer starts to count down ******* CHECK CODE ******  <================================ *****
-    // Change the "display" id to "00:00."
-    // $("#display").text("Time Remaining: " + "00:00" + "seconds");
+        //Timer starts to count down ******* CHECK CODE ******  <================================ *****
+        // Change the "display" id to "00:00."
+        //$("#display").text("Time Remaining: " + "00:00" + "seconds");
+    });
 
 
-//Random generator needed:
+
+//========================== CONDITIONALS ===========================
+function answerChoice(){
+
+//Loop for questions displayed
+    for (var i = 0; i < questionArray.length;i++){
+
     //Random question is generated
+    randomQuestion = Math.floor(Math.random(questionArray[i]));
 
-
+    console.log(randomQuestion);
 
     //User chooses either True or False
 
@@ -64,6 +87,11 @@ var questionObject = [{
 
     //User chooses either True or False
 
+    // $("#trueBtn").prop("checked", true);  //May not need true or false after checked ****
+    // $("#falseBtn").prop("checked", false);
+
+    }
+    
 //User choice logic:
     //If keyPressed == true && answer == true, then correctAnswerCounter ++ 
     //and the next question is generated
@@ -76,6 +104,11 @@ var questionObject = [{
 
     //If keyPress == false && answer == true, then incorrectAnswerCounter ++
     //and the next question is generated
+};
+ answerChoice();
+
+
+
 
 //Game completion:
     //If questionArray < 1, then game is over
@@ -97,3 +130,12 @@ var questionObject = [{
  
 // // Uncheck #x
 // $( "#x" ).prop( "checked", false );
+
+
+
+
+
+
+
+
+});
