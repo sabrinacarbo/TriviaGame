@@ -43,7 +43,7 @@ console.log(questionArray[0].answer);
 
 //Variable to hold the random question from the array
 var randomQuestion = [];
-var randomAnswer = "";
+var randomAnswer = [];
 
 //Timer variables
 var timer = 60;
@@ -90,13 +90,16 @@ $(document).ready(function () {
             $("#timer").text("Time Remaining: " + timer + " seconds");
         });
 
-        //Random question is generated
-        randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
+        // //Loop for current question displayed
+        for (var i = 0; i < questionArray.length; i++) {
 
-        //Adds random question to HTML
-        $("#triviaQuestion").text(randomQuestion.question);
+            //Random question is generated
+            randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
 
-        randomAnswer = randomQuestion.answer;
+            //Adds random question to HTML
+            $("#triviaQuestion").text(randomQuestion.question);
+
+        };
 
     });
 
@@ -110,24 +113,25 @@ $(document).ready(function () {
             trueButton = true;
 
             //If button chosen matches the correct answer, then correctAnswerCounter ++, otherwise, incorrectAnswerCounter++
-            if (trueButton === randomAnswer) {
+            if (trueButton == randomQuestion.answer) {
                 correctAnswerCounter++
             } 
-            else if (trueButton !== randomAnswer) {
+            else if (trueButton != randomQuestion.answer) {
                 incorrectAnswerCounter++
             }
 
-            //Random question is generated
-            randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
+            //Loop for new random question  to be displayed
+            for (var j = 0; j < questionArray.length; j++) {
 
-            //Adds random question to HTML
-            $("#triviaQuestion").text(randomQuestion.question);
+                //Random question is generated
+                randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
 
-            //Variable to hold answer boolean
-            randomAnswer = randomQuestion.answer;
+                //Adds random question to HTML
+                $("#triviaQuestion").text(randomQuestion.question);
 
-            console.log("Correct Answers: " + correctAnswerCounter);
-            console.log("Incorrect Answers: " + incorrectAnswerCounter);
+            };
+            console.log("Correct Answers: " + correctAnswerCounter++);
+            console.log("Incorrect Answers: " + incorrectAnswerCounter++);
         });
 
         //User selects the TRUE button
@@ -136,24 +140,26 @@ $(document).ready(function () {
             falseButton = false;
 
             //If button chosen matches the correct answer, then correctAnswerCounter ++, otherwise, incorrectAnswerCounter++
-            if (falseButton === randomAnswer) {
+            if (falseButton == randomQuestion.answer) {
                 correctAnswerCounter++
             } 
-            else if (falseButton !== randomAnswer)  {
+            else if (falseButton != randomQuestion.answer)  {
                 incorrectAnswerCounter++
             }
 
-            //Random question is generated
-            randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
+            //Loop for new random question  to be displayed
+            for (var k = 0; k < questionArray.length; k++) {
 
-            //Adds random question to HTML
-            $("#triviaQuestion").text(randomQuestion.question);
+                //Random question is generated
+                randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
 
-            //Variable to hold answer boolean
-            randomAnswer = randomQuestion.answer;
+                //Adds random question to HTML
+                $("#triviaQuestion").text(randomQuestion.question);
 
-            console.log("Correct Answers: " + correctAnswerCounter);
-            console.log("Incorrect Answers: " + incorrectAnswerCounter);
+            };
+
+            console.log("Correct Answers: " + correctAnswerCounter++);
+            console.log("Incorrect Answers: " + incorrectAnswerCounter++);
         });
 
     };
@@ -171,8 +177,9 @@ $(document).ready(function () {
 
 
     //     //Upon completion:
-    //     //Correct Answers = correctAnswerCounter
-    //     //Incorrect Answers = incorrectAnswerCounter
+    //     //correctAnswerCounter = (total correct answers)
+    //     //incorrectAnswerCounter = (total incorrect answers)
+    //     //unansweredAnswerCounter  = (total unanswered questions)
 
 
     // };
