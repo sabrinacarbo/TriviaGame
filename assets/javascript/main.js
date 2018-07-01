@@ -38,11 +38,12 @@ var questionArray = [{
     answer: false,
 }];
 
-console.log(questionArray[0].question);
-console.log(questionArray[0].answer);
+// console.log(questionArray[0].question);
+// console.log(questionArray[0].answer);
 
 //Variable to hold the random question from the array
 var randomQuestion = [];
+//Variable to hold the answer to the random question
 var randomAnswer = "";
 
 //Timer variables
@@ -82,13 +83,41 @@ $(document).ready(function () {
     //User pushes the start button to begin the game
     $("#startBtn").click(function gameStart() {
 
-        setInterval(function () {
-            $("#timer").text(Math.round(timer / 1000, 0) + " Seconds");
+        function run() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(decrement, 1000);
+        };
 
-            //Timer starts to count down ******* CHECK CODE ******  <================================ *****
-            // Change the "timer" id to "00:00."
+        //  The decrement function.
+        function decrement() {
+
+            //  Decrease number by one.
+            timer--;
+
+            //  Show the number in the #timer tag.
             $("#timer").text("Time Remaining: " + timer + " seconds");
-        });
+
+
+            //  Once number hits zero...
+            if (timer === 0) {
+
+                //  ...run the stop function.
+                stop();
+
+                //  Alert the user that time is up.
+                alert("Time Up!");
+            };
+        };
+
+        //  The stop function
+        function stop() {
+
+            //  Clears our timer
+            clearInterval(timerInterval);
+        }
+
+        //  Execute the run function.
+        run();
 
         //Random question is generated
         randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
@@ -98,10 +127,11 @@ $(document).ready(function () {
 
         randomAnswer = randomQuestion.answer;
 
+        
     });
 
-
     //============================= CONDITIONALS ==============================
+
     function answerChoice() {
 
         //User selects the TRUE button
@@ -112,8 +142,7 @@ $(document).ready(function () {
             //If button chosen matches the correct answer, then correctAnswerCounter ++, otherwise, incorrectAnswerCounter++
             if (trueButton === randomAnswer) {
                 correctAnswerCounter++
-            } 
-            else if (trueButton !== randomAnswer) {
+            } else if (trueButton !== randomAnswer) {
                 incorrectAnswerCounter++
             }
 
@@ -138,8 +167,7 @@ $(document).ready(function () {
             //If button chosen matches the correct answer, then correctAnswerCounter ++, otherwise, incorrectAnswerCounter++
             if (falseButton === randomAnswer) {
                 correctAnswerCounter++
-            } 
-            else if (falseButton !== randomAnswer)  {
+            } else if (falseButton !== randomAnswer) {
                 incorrectAnswerCounter++
             }
 
@@ -162,18 +190,16 @@ $(document).ready(function () {
     answerChoice();
 
 
-    // function gameComplete() {
-
-    //     //Game completion:
-    //     //If questionArray < 1, then game is over
-    //     //If timer == 0, then game is over
+//Game completion:
+    //If questionArray < 1, then game is over
+    //If timer == 0, then game is over
 
 
 
-    //     //Upon completion:
-    //     //Correct Answers = correctAnswerCounter
-    //     //Incorrect Answers = incorrectAnswerCounter
+//Upon completion:
 
+    // $("#completed").text("Correct Answers: " + correctAnswerCounter);
+    // $("#completed").append("Incorrect Answers: " + incorrectAnswerCounter);
 
     // };
 

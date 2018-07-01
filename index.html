@@ -10,40 +10,46 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script src="assets/javascript/main.js"></script>
+
 </head>
 
 <body>
     <div class="container">
-        <h1>Quiz Header</h1>
-
-        <br>
+        <header>Princess Bride Trivia</header>
 
         <div id="startBtn">
-            <button>START</button>
+            <button class="start">START</button>  
         </div>
-
+        
         <br>
 
-        <div id="timer">00:00</div>
+        <div class="box">
 
-        <br>
+            <div id="timer">00:00</div>
 
-        <div id="triviaQuestion">
-            <h3></h3>
+            <br><br>
+
+            <div id="triviaQuestion">
+                <h3></h3>
+            </div>
+
+            <br>
+
+            <div id="trueBtn">
+                <button>TRUE</button>
+            </div>
+
+            <div id="falseBtn">
+                <button>FALSE</button>
+            </div>
         </div>
 
-        <br>
-
-        <div id="trueBtn">
-            <button>TRUE</button>
+        <div id="completed">
         </div>
 
-        <div id="falseBtn">
-            <button>FALSE</button>
-        </div>
     </div>
-
 </body>
+
+<script src="assets/javascript/main.js"></script>
 
 </html>

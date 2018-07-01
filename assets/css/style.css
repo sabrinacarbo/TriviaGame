@@ -1,3 +1,51 @@
-body{
-    font-display: "Raphael";
+* {
+    box-sizing: border-box;
+  }
+
+@font-face {
+    font-family: "Raphael Std";
+    src: url("../images/RaphaelStd.otf");
+}
+
+body {
+    background-image: url("../images/background.png");
+    background-size: 100%;
+} 
+
+header {
+    font-family: "Raphael Std";
+    font-size: 60px;
+    /* text-shadow: 4px 4px hotpink; */
+    color: black;
+    font-weight: normal;
+    text-align: center;
+    clear: both;
+    margin: 20px;
+}
+
+
+/* Gives word box opaque background */
+.box {
+    clear: both;
+    position: static;
+    top: 475px;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border: 3px solid grey;
+    opacity: 0.8; 
+    text-align: center;
+    font-size: 30px;
+}
+
+#startBtn{
+    text-align: center;
+    font-size: 30px;
+    clear: both;
+    margin: auto;
+    padding: 20px 0;
+    position: static;
+    font-weight: bold;
 }
