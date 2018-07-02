@@ -18,36 +18,41 @@
         <header>Princess Bride Trivia</header>
 
         <div id="startBtn">
-            <button class="start">START</button>  
+            <button class="start">START</button>
         </div>
-        
+
         <br>
 
         <div class="box">
+            <section>
+                <div id="timer"></div>
 
-            <div id="timer">00:00</div>
+                <br>
+                <br>
 
-            <br><br>
-
-            <div id="triviaQuestion">
-                <h3></h3>
-            </div>
+                <div id="triviaQuestion">
+                    <h3></h3>
+                </div>
+            </section>
 
             <br>
 
-            <div id="trueBtn">
-                <button>TRUE</button>
+            <section id="answerBtn">
+                <div>
+                    <div id="trueBtn" class="clearfix">
+                        <button>TRUE</button>
+                    </div>
+
+                    <div id="falseBtn">
+                        <button>FALSE</button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="completed">
             </div>
 
-            <div id="falseBtn">
-                <button>FALSE</button>
-            </div>
         </div>
-
-        <div id="completed">
-        </div>
-
-    </div>
 </body>
 
 <script src="assets/javascript/main.js"></script>

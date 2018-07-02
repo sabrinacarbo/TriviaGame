@@ -1,6 +1,6 @@
-* {
+/* * {
     box-sizing: border-box;
-  }
+  } */
 
 @font-face {
     font-family: "Raphael Std";
@@ -15,21 +15,27 @@ body {
 header {
     font-family: "Raphael Std";
     font-size: 60px;
-    /* text-shadow: 4px 4px hotpink; */
     color: black;
     font-weight: normal;
     text-align: center;
     clear: both;
     margin: 20px;
+    letter-spacing: 3px;
 }
 
+/* Contains trivia questions */
+#triviaQuestion{
+    word-wrap: initial; 
+    margin: auto;
+    height: 50px;
+}
 
 /* Gives word box opaque background */
 .box {
     clear: both;
     position: static;
     top: 475px;
-    width: 600px;
+    width: 700px;
     height: 400px;
     margin: auto;
     padding: 20px 0;
@@ -40,12 +46,48 @@ header {
     font-size: 30px;
 }
 
+/* Applies to all buttons */
+button {
+    background-color: lightblue; 
+    color: black;
+    padding: 15px 25px;
+    font-size: 18px;
+}
+
+/* Centers start button */
 #startBtn{
     text-align: center;
-    font-size: 30px;
-    clear: both;
-    margin: auto;
-    padding: 20px 0;
-    position: static;
-    font-weight: bold;
 }
+
+/* Aligns answer buttons */
+#answerBtn{
+    position: relative;
+    clear: left;
+    margin: 150px auto;
+}
+
+/* True button */
+#trueBtn{
+    clear: both;
+    margin: 5px 0 0 100px;
+    float: left;
+    display: block;
+}
+
+/* False button */
+#falseBtn{
+    clear: both;
+    margin: -50px 100px 10px 0;
+    float: right;
+    display: block;
+}
+
+#completed{
+    margin: 100px auto;
+}
+
+.clearfix:both {
+    content: "";
+    display: block;
+    clear: both;
+  }

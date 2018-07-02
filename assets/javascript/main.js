@@ -65,13 +65,12 @@ $(document).ready(function () {
         //Resets all counters
         correctAnswerCounter = 0;
         incorrectAnswerCounter = 0;
-        unansweredAnswerCounter = 0;
 
         //Need to hide question until 
         $("#triviaQuestion").empty();
 
         //Timer set to start
-        timer = 60;
+        timer = 45;
         $("#timer").text("Time Remaining: " + timer + " seconds");
 
     };
@@ -83,6 +82,7 @@ $(document).ready(function () {
     //User pushes the start button to begin the game
     $("#startBtn").click(function gameStart() {
 
+        //=============== TIMER ================
         function run() {
             clearInterval(timerInterval);
             timerInterval = setInterval(decrement, 1000);
@@ -104,8 +104,6 @@ $(document).ready(function () {
                 //  ...run the stop function.
                 stop();
 
-                //  Alert the user that time is up.
-                alert("Time Up!");
             };
         };
 
@@ -126,8 +124,6 @@ $(document).ready(function () {
         $("#triviaQuestion").text(randomQuestion.question);
 
         randomAnswer = randomQuestion.answer;
-
-
     });
 
     //============================= CONDITIONALS ==============================
@@ -206,7 +202,13 @@ $(document).ready(function () {
 
         //If timer === 0, then game is over
         if (timer === 0){
-            alert("Time's Up!");
+            
+            $("#triviaQuestion").empty();
+            $(".box").text("Time's up!!");
+            $(".box").append("<br>");
+            $(".box").append("Correct Answers: " + correctAnswerCounter);
+            $(".box").append("<br>");
+            $(".box").append("Incorrect Answers: " + incorrectAnswerCounter);
         }
 
         stop();
